@@ -1,7 +1,61 @@
-* {
+:root {
+    --main-backround-color: #0f1225;
+}
 
+* {
+    background-color: var(--main-backround-color);
+    color: #FFFFFF;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body {
-
+    height: 100vh;
+    width: 100vw;
+    margin: 0rem;
+    display: flex;
+    flex-direction: column;
 }
+
+header {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Container settings for box quiz will take place in*/
+.quiz-container {
+    width: 600px;
+    min-height: 400px;
+    align-self: center;
+}
+
+/* Landing page settings */
+#start-quiz-screen button {
+    align-self: center;
+    border-radius: 6%;
+    width: 15%;
+}
+
+#start-quiz-screen button:hover {
+    background-color: blue;
+}
+
+#start-quiz-screen {
+    visibility: visible;
+}
+
+#quiz-questions-screen {
+    visibility: hidden;
+}
+
+#end-quiz-screen {
+    visibility: hidden;
+}
+
