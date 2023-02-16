@@ -5,21 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
   </head>
   <body>
     <header>
       <div id="highscores">View Highscores</div>
-      <div id="timer">00:00</div>
+      <div id="timer">Time:
+        <span id="time-count-minutes">00</span>:<span id="time-count-seconds">00</span>
+      </div>
     </header>
     <main>
-      <h1>JavaScript API Quiz</h1>
-      <p>lklfglksgvksgjblkfsnkjlbnrkn nkafnrkjsgnskjnbkjsgnbsd</p>
-      <button>Start Quiz</button>
+      <div id="start-quiz-screen" class="quiz-container" data-state="visible">
+        <h1>JavaScript API Quiz</h1>
+        <p>lklfglksgvksgjblkfsnkjlbnrkn nkafnrkjsgnskjnbkjsgnbsd</p>
+        <button id="start-button">Start Quiz</button>
+      </div>
+      
+      <div id="quiz-questions-screen" class="quiz-container" data-state="hidden">
+        <h2></h2>
+        <div id="answer-options"></div>
+      </div>
+
+      <div id="end-quiz-screen" class="quiz-container" data-state="hidden"> 
+
+      </div>
+    
     </main>
     <footer>
 
     </footer>
-	<script src="script.js"></script>
+	<script src="./assets/js/script.js"></script>
   </body>
 </html>
