@@ -1,19 +1,19 @@
 :root {
-    --main-backround-color: #0f1225;
+    --main-backround-clr: #0f1225;
+    --main-accent-clr: #322356;
 }
 
 * {
-    background-color: var(--main-backround-color);
+    background-color: var(--main-backround-clr);
     color: #FFFFFF;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: 'Roboto Mono', monospace;
 }
 
 body {
     height: 100vh;
     width: 100vw;
     margin: 0rem;
-    display: flex;
-    flex-direction: column;
 }
 
 header {
@@ -34,17 +34,22 @@ main {
     width: 600px;
     min-height: 400px;
     align-self: center;
+    padding: 20px;
+    border: 10px outset var(--main-accent-clr);
+    box-shadow: 10px var(--main-accent-clr);
 }
 
 /* Landing page settings */
 #start-quiz-screen button {
+    font-size: 24px;
     align-self: center;
     border-radius: 6%;
     width: 15%;
 }
 
 #start-quiz-screen button:hover {
-    background-color: blue;
+    background-color: var(--main-accent-clr);
+    box-shadow: 0 12px 16px 0 rgba(116, 115, 115, 0.24), 0 17px 50px 0 rgba(100, 100, 100, 0.19);
 }
 
 #start-quiz-screen {
@@ -58,4 +63,3 @@ main {
 #end-quiz-screen {
     visibility: hidden;
 }
-
