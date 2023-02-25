@@ -7,7 +7,7 @@ var endScreen = document.getElementById("end-quiz-screen");
 var highscoreScreen = document.getElementById("highscores");
 var overlayScreen = document.getElementById("overlay");
 var submitButton = document.getElementById("submit");
-var elapsedTime = 0;
+// var elapsedTime = 0;
 var answerKey = [1,3,5,2];
 var highscore = 0;
 var totalTime = 100;
@@ -70,7 +70,6 @@ function clearWindow() {
         answerButtons.firstChild.remove();
         clearWindow();
     }
-    
 }
 
 function loadEndScreen() {
@@ -94,6 +93,15 @@ function logInitials(event) {
     var newEntry = document.createElement("li")
     newEntry.textContent = document.getElementById("initials").value + ": " + highscore;
     scoreList.append(newEntry);
+    resetQuiz();
+}
+/* Return main screen, reset time, quizOver flag, and highschore */
+function resetQuiz() {
+    endScreen.style.visibility = "collapse";
+    startScreen.style.visibility = "visible";
+    totalTime = 100;
+    highscore = 0;
+    isQuizOver = false;
 }
 
 highscoreScreen.addEventListener("click", displayHighscores);
