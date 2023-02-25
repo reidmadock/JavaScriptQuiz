@@ -4,6 +4,9 @@ var quizStartButton = document.getElementById("start-button");
 var startScreen = document.getElementById("start-quiz-screen");
 var quizScreen = document.getElementById("quiz-questions-screen");
 var endScreen = document.getElementById("end-quiz-screen");
+var highscoreScreen = document.getElementById("highscores");
+var overlayScreen = document.getElementById("overlay");
+var submitButton = document.getElementById("submit");
 var elapsedTime = 0;
 var answerKey = [1,3,5,2];
 var highscore = 0;
@@ -21,18 +24,8 @@ function countdown() {
     },1000)
 }
 
-function quizTimer() {
-    setInterval(function () {
-        elapsedTime++;
-        timeSeconds.textContent = elapsedTime % 60;
-        timeMinutes.textContent = Math.floor(elapsedTime / 60);
-    },1000);
-}
-
 function beginQuiz() {
-    // quizTimer();
     countdown();
-    //var questionNum = 0;
     startScreen.style.visibility = "collapse";
     quizScreen.style.visibility = "visible";
     loadQuestion(0);
@@ -48,21 +41,19 @@ function loadQuestion(num) {
         var button = document.createElement('button');
         button.setAttribute('class', 'option');
         button.setAttribute('data-number',(i));
-        //button.setAttribute('text', quesAndAns[num][i]);
         button.textContent = quesAndAns[num][i];
         answerButtons.appendChild(button);
 
         button.addEventListener("click", function(event) {
             if (event.target.dataset.number == correctAnswer) {
                 console.log("correct!");
-                highscore++;
+                highscore += 10;
             } else {
                 totalTime -= 5;
                 console.log("Incorrect :(");
             }
             clearWindow();
             if (num < answerKey.length - 1) {
-                // clearWindow()
                 loadQuestion(++num);
             } else {
                 isQuizOver = true;
@@ -73,20 +64,7 @@ function loadQuestion(num) {
 }
 /* since removing child elements can't be done in a loop the clearWindow() function uses recursion to remove all buttons */
 function clearWindow() {
-    // var questionText = document.getElementById("question-prompt");
-    // console.log("Clearing window...");
     var answerButtons = document.getElementById("answer-options");
-    // questionText.textContent = ""
-    // var allButtons = document.getElementsByClassName("option")
-    // console.log("hopefully this is all the buttons: ", allButtons);
-    // for(var i = 0; i < allButtons.length; i++) {
-    //     allButtons[i].remove();
-    // }
-    // console.log(answerButtons.childNodes);
-    // for (var i = 0; i < answerButtons.childNodes.length; i++) {
-    //     console.log("Removing first child...")
-    //     answerButtons.firstChild.remove();
-    // }
     if (answerButtons.childNodes.length > 0) {
         console.log("Removing first child recursively...")
         answerButtons.firstChild.remove();
@@ -98,14 +76,29 @@ function clearWindow() {
 function loadEndScreen() {
     quizScreen.style.visibility = "collapse";
     endScreen.style.visibility = "visible";
-    // var displayMsg = document.createElement("h2")
-    // displayMsg.textContent = "Congratulations!"
-    // endScreen.append(displayMsg);
     var currentScore = document.getElementById("score");
-    currentScore.textContent = (highscore * 10);
-
+    currentScore.textContent = highscore;
 }
 
+function displayHighscores() {
+    document.getElementById("overlay").style.display = "block"
+}
+
+function hideHighscores() {
+    document.getElementById("overlay").style.display = "none"
+}
+
+function logInitials(event) {
+    event.preventDefault();
+    var scoreList = document.getElementById("score-list");
+    var newEntry = document.createElement("li")
+    newEntry.textContent = document.getElementById("initials").value + ": " + highscore;
+    scoreList.append(newEntry);
+}
+
+highscoreScreen.addEventListener("click", displayHighscores);
+overlayScreen.addEventListener("click", hideHighscores);
+submitButton.addEventListener("click", logInitials);
 quizStartButton.addEventListener("click", beginQuiz);
 /* 2D array, [][] -> [question #][question data] where N_{0} is question data and N_{1,..,M} are options.
 therefor [0][0] is the first question, [0][1] is the first answer choice, [1][0] is the second question.
