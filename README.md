@@ -10,6 +10,7 @@ That part was actually super frustrating, because apparently the .remove() funct
 ## Link
 The project can be found here [on my github.io](https://reidmadock.github.io/JavaScriptQuiz/)
 
+
 ## Screenshots
 This is what the site looks like when you initially load it.
 ![Screenshot of main page](./assets/images/quizscreenshot.png)

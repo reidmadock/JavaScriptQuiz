@@ -7,8 +7,7 @@ var endScreen = document.getElementById("end-quiz-screen");
 var highscoreScreen = document.getElementById("highscores");
 var overlayScreen = document.getElementById("overlay");
 var submitButton = document.getElementById("submit");
-// var elapsedTime = 0;
-var answerKey = [1,3,5,2];
+var answerKey = [1,3,2,1];
 var highscore = 0;
 var totalTime = 100;
 var isQuizOver = false;
@@ -114,6 +113,6 @@ This has the added benefit of minimizing confusion for the answer key lining up 
 as in Option 1. == 1 instead of Option 1. == 0 */
 var quesAndAns = [
     ["What does DOM stand for?","Document Object Model","Derived Object Model","Document Object Main","It doesn't mean anything"],
-    ["What does DOM stand for?","Document Object Model","Derived Object Model","Document Object Main","It doesn't mean anything"],
-    ["What does DOM stand for?","Document Object Model","Derived Object Model","Document Object Main","It doesn't mean anything"],
-    ["What does DOM stand for?","Document Object Model","Derived Object Model","Document Object Main","It doesn't mean anything"]];
+    ["Is JavaScript...","Multi-threaded","Reverse-threaded","Single-threaded","There are no threads."],
+    ["In JavaScript a function is decalered as function exampleFunc(a), what is a referred to as?", "Pass by reference", "Parameter", "Sentinel value", "Global"],
+    ["In JavaScript a callback function is also referred to as", "Anonymous function", "Main function", "Lambda Expression", "Steve"]];
