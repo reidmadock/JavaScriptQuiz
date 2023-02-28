@@ -22,14 +22,15 @@ function countdown() {
       }
     },1000)
 }
-
+//hide elements from main page and display container for quiz
 function beginQuiz() {
     countdown();
     startScreen.style.visibility = "collapse";
     quizScreen.style.visibility = "visible";
     loadQuestion(0);
 }
-
+//Load each question where index [x][0] is the question and [x][1..N] are the answer options, add a click listener to each
+//Then wait for the answer before loading the next question, until all questions are used.
 function loadQuestion(num) {
     var questionText = document.getElementById("question-prompt");
     var answerButtons = document.getElementById("answer-options");
@@ -70,7 +71,7 @@ function clearWindow() {
         clearWindow();
     }
 }
-
+//hide quiz container and display the elements for the end screen, wait for initials
 function loadEndScreen() {
     quizScreen.style.visibility = "collapse";
     endScreen.style.visibility = "visible";
@@ -85,7 +86,7 @@ function displayHighscores() {
 function hideHighscores() {
     document.getElementById("overlay").style.display = "none"
 }
-
+//once initials are logged quiz should reset back to original state so it can be taken again
 function logInitials(event) {
     event.preventDefault();
     var scoreList = document.getElementById("score-list");
