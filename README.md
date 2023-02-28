@@ -13,4 +13,4 @@ The project can be found here [on my github.io](https://reidmadock.github.io/Jav
 
 ## Screenshots
 This is what the site looks like when you initially load it.
-![Screenshot of main page](./assets/images/quizscreenshot.png)
+![Screenshot of main page](./assets/images/updatedquizscreenshot.png)
